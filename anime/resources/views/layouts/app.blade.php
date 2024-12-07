@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
+ 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-    <!-- Css Styles -->
+    
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/css/elegant-icons.css') }}" type="text/css">
@@ -23,14 +23,13 @@
     <link rel="stylesheet" href="{{ asset('assets/css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
 
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+   
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
+<body style="overflow-x: hidden">
     <div id="app">
         {{--<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -86,7 +85,7 @@
             </div>
         </nav>--}}
 
-        <!-- Header Section Begin -->
+        
     <header class="header">
         <div class="container">
             <div class="row">
@@ -168,7 +167,6 @@
         </main>
     </div>
 
-    <!-- Footer Section Begin -->
 <footer class="footer">
     <div class="page-up">
         <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
@@ -197,9 +195,7 @@
           </div>
       </div>
   </footer>
-  <!-- Footer Section End -->
 
-  <!-- Search model Begin -->
   <div class="search-model">
     <div class="h-100 d-flex align-items-center justify-content-center">
         <div class="search-close-switch"><i class="icon_close"></i></div>
@@ -208,10 +204,7 @@
         </form>
     </div>
 </div>
-<!-- Search model end -->
 
-
-  <!-- Js Plugins -->
 <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/player.js') }}"></script>

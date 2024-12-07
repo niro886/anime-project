@@ -86,7 +86,7 @@
         </nav>--}}
 
         
-    <header class="header">
+    <header class="header" style="margin-bottom: 40px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2">
@@ -120,17 +120,17 @@
                          
                 <ul>
                     @guest
-                                @if (Route::has('login'))
+                     @if (Route::has('login'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        <a style="margin-right: 100px" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </li>
                                 @endif
     
-                                @if (Route::has('register'))
+                                {{--@if (Route::has('register'))
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
-                                @endif
+                                @endif--}}
     
                                 @else
                                 <li class="nav-item dropdown">
@@ -153,7 +153,7 @@
                             @endguest
                                 </ul>
 
-                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
+                        {{--<a href="#" class="search-switch"><span class="icon_search"></span></a>--}}
                         {{--<a href="./login.html"><span class="icon_profile"></span></a>--}}
                     </div>
                 </div>

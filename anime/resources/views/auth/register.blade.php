@@ -88,7 +88,7 @@
     </div>
 </section>
 
-<section class="signup spad">
+<section class="signup spad" style="background-color: #0b0c2a">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

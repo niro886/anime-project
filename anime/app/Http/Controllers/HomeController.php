@@ -32,7 +32,11 @@ class HomeController extends Controller
 
         $recentShows = Show::orderBy('id', 'desc')->take(6)->get();
 
-        return view('home', compact('shows', 'trendingShows', 'adventureShows', 'recentShows'));
+        $liveShows = Show::select()->orderBy('id', 'desc')->take(6)->where('genere', 'action')->get();
+
+        $forYouShows = Show::orderBy('name', 'asc')->take(4)->get();
+
+        return view('home', compact('shows', 'trendingShows', 'adventureShows', 'recentShows', 'liveShows', 'forYouShows'));
     }
 
 }

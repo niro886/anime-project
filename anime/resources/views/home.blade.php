@@ -173,102 +173,26 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
+                        @foreach ($liveShows as $show) 
+                            <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-1.jpg">
-                                    <div class="ep">18 / 18</div>
+                                <div class="product__item__pic set-bg" data-setbg="{{ asset('assets/img/'.$show->image.'')}}">
+                                    {{--<div class="ep">18 / 18</div>
                                     <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>--}}
                                 </div>
                                 <div class="product__item__text">
                                     <ul>
                                         <li>Active</li>
-                                        <li>Movie</li>
+                                        <li>TV Show</li>
                                     </ul>
-                                    <h5><a href="#">Shouwa Genroku Rakugo Shinjuu</a></h5>
+                                    <h5><a href="#">{{ $show->name}}</a></h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-2.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Mushishi Zoku Shou 2nd Season</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-3.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Mushishi Zoku Shou: Suzu no Shizuku</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-4.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-5.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Fate/stay night Movie: Heaven's Feel - II. Lost</a></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/live/live-6.jpg">
-                                    <div class="ep">18 / 18</div>
-                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                </div>
-                                <div class="product__item__text">
-                                    <ul>
-                                        <li>Active</li>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#">Kizumonogatari II: Nekketsu-hen</a></h5>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        
+                       
                     </div>
                 </div>
             </div>
@@ -281,58 +205,23 @@
     <div class="section-title">
         <h5>For You</h5>
     </div>
+    @foreach ($forYouShows as $show)
     <div class="product__sidebar__comment__item">
         <div class="product__sidebar__comment__item__pic">
-            <img src="img/sidebar/comment-1.jpg" alt="">
+            <img src="{{ asset('assets/img/'.$show->image.'')}}" alt="">
         </div>
         <div class="product__sidebar__comment__item__text">
             <ul>
                 <li>Active</li>
-                <li>Movie</li>
+                <li>TV Show</li>
             </ul>
-            <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-            <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
+            <h5><a href="#">{{$show->name}}</a></h5>
+            {{--<span><i class="fa fa-eye"></i> 19.141 Viewes</span>--}}
         </div>
     </div>
-    <div class="product__sidebar__comment__item">
-        <div class="product__sidebar__comment__item__pic">
-            <img src="img/sidebar/comment-2.jpg" alt="">
-        </div>
-        <div class="product__sidebar__comment__item__text">
-            <ul>
-                <li>Active</li>
-                <li>Movie</li>
-            </ul>
-            <h5><a href="#">Shirogane Tamashii hen Kouhan sen</a></h5>
-            <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
-        </div>
-    </div>
-    <div class="product__sidebar__comment__item">
-        <div class="product__sidebar__comment__item__pic">
-            <img src="img/sidebar/comment-3.jpg" alt="">
-        </div>
-        <div class="product__sidebar__comment__item__text">
-            <ul>
-                <li>Active</li>
-                <li>Movie</li>
-            </ul>
-            <h5><a href="#">Kizumonogatari III: Reiket su-hen</a></h5>
-            <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
-        </div>
-    </div>
-    <div class="product__sidebar__comment__item">
-        <div class="product__sidebar__comment__item__pic">
-            <img src="img/sidebar/comment-4.jpg" alt="">
-        </div>
-        <div class="product__sidebar__comment__item__text">
-            <ul>
-                <li>Active</li>
-                <li>Movie</li>
-            </ul>
-            <h5><a href="#">Monogatari Series: Second Season</a></h5>
-            <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
-        </div>
-    </div>
+    @endforeach
+    
+    
 </div>
 </div>
 </div>

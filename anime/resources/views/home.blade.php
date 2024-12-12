@@ -79,7 +79,7 @@
                                         <li>Active</li>
                                         <li>TV Show</li>
                                     </ul>
-                                    <h5><a href="anime-details.html">{{ $show->name}}</a></h5>
+                                    <h5><a href="{{ route('anime.details', $show->id)}}">{{ $show->name}}</a></h5>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                                         <li>Active</li>
                                         <li>TV Show</li>
                                     </ul>
-                                    <h5><a href="#">{{ $show->name}}</a></h5>
+                                    <h5><a href="{{ route('anime.details', $show->id)}}">{{ $show->name}}</a></h5>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                                         <li>Active</li>
                                         <li>TV Show</li>
                                     </ul>
-                                    <h5><a href="#">{{$show->name}}</a></h5>
+                                    <h5><a href="{{ route('anime.details', $show->id)}}">{{$show->name}}</a></h5>
                                 </div>
                             </div>
                         </div>

@@ -28,6 +28,10 @@ class AnimeController extends Controller
 
         $validateFollowing = Following::where('user_id', Auth::user()->id)->where('show_id', $id)->count();
 
+        $numberComments = Comment::where('show_id', $id)->count();
+
+
+
         //getting new views
 
         if (isset(Auth::user()->id)) {
@@ -50,7 +54,7 @@ class AnimeController extends Controller
 
 
 
-        return view('shows.anime-details', compact('show', 'randomShows', 'comments', 'validateFollowing', 'numberViews'));
+        return view('shows.anime-details', compact('show', 'randomShows', 'comments', 'validateFollowing', 'numberViews', 'numberComments'));
 
     }
 

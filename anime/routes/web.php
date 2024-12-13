@@ -15,3 +15,6 @@ Route::get('shows/show-details/{id}', [App\Http\Controllers\Anime\AnimeControlle
 
 //comments
 Route::post('shows/insert-comments/{id}', [App\Http\Controllers\Anime\AnimeController::class, 'insertComments'])->name('anime.insert.comments');
+
+//following
+Route::post('shows/follow/{id}', [App\Http\Controllers\Anime\AnimeController::class, 'follow'])->name('anime.follow');

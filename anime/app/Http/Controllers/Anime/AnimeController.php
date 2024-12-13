@@ -9,6 +9,7 @@ use App\Models\Comment\Comment;
 use Auth;
 use Illuminate\Http\Request;
 use Redirect;
+use App\Models\View\View;
 
 
 
@@ -27,10 +28,31 @@ class AnimeController extends Controller
 
         $validateFollowing = Following::where('user_id', Auth::user()->id)->where('show_id', $id)->count();
 
+        //getting new views
 
-        return view('shows.anime-details', compact('show', 'randomShows', 'comments', 'validateFollowing'));
+        if (isset(Auth::user()->id)) {
+
+            //validating views
+            $validateViews = View::where('user_id', Auth::user()->id)->where('show_id', $id)->count();
+
+            if ($validateViews == 0)
+
+
+                $views = View::create([
+                    'show_id' => $id,
+                    'user_id' => Auth::user()->id,
+                ]);
+        }
+
+        //getting number of views
+        $numberViews = View::where('show_id', $id)->count();
+
+
+
+
+        return view('shows.anime-details', compact('show', 'randomShows', 'comments', 'validateFollowing', 'numberViews'));
+
     }
-
 
     public function insertComments(Request $request, $id)
     {

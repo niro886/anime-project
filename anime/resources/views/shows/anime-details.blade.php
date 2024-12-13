@@ -60,7 +60,7 @@
 
                                         <li><span>Duration:</span> {{$show->duration}}</li>
                                         <li><span>Quality:</span> {{$show->quality}}</li>
-                                        <li><span>Views:</span> 131,541</li>
+                                        <li><span>Views:</span> {{ $numberViews}}</li>
                                     </ul>
                                 </div>
                             </div>

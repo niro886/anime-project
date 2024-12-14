@@ -93,7 +93,7 @@ class AnimeController extends Controller
 
         $show = Show::find($show_id);
 
-        $episode = Episode::find($episode_id)->where('show_id', $show_id)->first();
+        $episode = Episode::where('episode_name', $episode_id)->where('show_id', $show_id)->first();
 
         $episodes = Episode::select()->where('show_id', $show_id)->get();
 

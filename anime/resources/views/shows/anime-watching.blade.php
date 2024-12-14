@@ -36,7 +36,7 @@
                     </div>
 
                     @foreach ($episodes as $episode)
-                    <a href="{{ route('anime.watching', ['show_id'=>$show->id, 'episode_id'=>$episode->id]) }}">Ep {{ $episode->episode_name}}</a>
+                    <a href="{{ route('anime.watching', ['show_id'=>$show->id, 'episode_id'=>$episode->episode_name]) }}">Ep {{ $episode->episode_name}}</a>
                     @endforeach
                    
                 </div>

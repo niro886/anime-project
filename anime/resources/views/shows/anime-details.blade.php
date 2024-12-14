@@ -77,7 +77,7 @@
                             </form>
                             @endif
 
-                            <a href="anime-watching.html" class="watch-btn"><span>Watch Now</span> <i
+                            <a href="{{ route('anime.watching', ['show_id'=>$show->id, 'episode_id'=>1]) }}"   class="watch-btn"><span>Watch Now</span> <i
                                 class="fa fa-angle-right"></i></a>
                             </div>
 

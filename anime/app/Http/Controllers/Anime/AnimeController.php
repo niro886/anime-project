@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Anime;
 
 use App\Http\Controllers\Controller;
+use App\Models\Episode\Episode;
 use App\Models\Following\Following;
 use App\Models\Show\Show;
 use App\Models\Comment\Comment;
@@ -51,9 +52,6 @@ class AnimeController extends Controller
         //getting number of views
         $numberViews = View::where('show_id', $id)->count();
 
-
-
-
         return view('shows.anime-details', compact('show', 'randomShows', 'comments', 'validateFollowing', 'numberViews', 'numberComments'));
 
     }
@@ -85,6 +83,22 @@ class AnimeController extends Controller
         if ($follow) {
             return Redirect::route('anime.details', $id)->with(['follow' => 'You followed this show Successfully!']);
         }
+    }
+
+
+
+
+    public function animeWatching($show_id, $episode_id)
+    {
+
+        $show = Show::find($show_id);
+
+        $episode = Episode::find($episode_id)->where('show_id', $show_id)->first();
+
+        $episodes = Episode::select()->where('show_id', $show_id)->get();
+
+        return view('shows.anime-watching', compact('show', 'episode', 'episodes'));
+
     }
 
 }

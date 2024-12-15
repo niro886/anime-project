@@ -120,5 +120,14 @@ class AnimeController extends Controller
 
     }
 
+    public function searchShows(Request $request)
+    {
+        $show = $request->get('show');
+
+        $searches = Show::where('name', 'like', "%$show%")->orWhere('genere', 'like', "%$show%")->get();
+
+        return view('shows.searches', compact('searches'));
+    }
+
 
 }

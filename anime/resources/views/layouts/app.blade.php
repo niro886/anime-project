@@ -104,7 +104,7 @@
                                 <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
                                         @foreach ($categories as $category)
-                                        <li><a href="./categories.html">{{ $category->name}}</a></li>
+                                        <li><a href="{{ route('anime.category', $category->name)}}">{{ $category->name}}</a></li>
                                         @endforeach
                                         
                                     </ul>

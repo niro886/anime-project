@@ -105,4 +105,18 @@ class AnimeController extends Controller
 
     }
 
+
+    public function category($category_name)
+    {
+
+        $shows = Show::where('genere', $category_name)->get();
+
+        $forYouShows = Show::select()->orderBy('name', 'asc')->take(4)->get();
+
+
+        return view('shows.category', compact('shows', 'category_name', 'forYouShows'));
+
+    }
+
+
 }

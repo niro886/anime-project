@@ -103,10 +103,10 @@
                                 <li class="active"><a href="./index.html">Homepage</a></li>
                                 <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
-                                        <li><a href="./categories.html">Romance</a></li>
-                                        <li><a href="./categories.html">Adventure </a></li>
-                                        <li><a href="./categories.html">Magic</a></li>
-                                        <li><a href="./categories.html">Fantasy</a></li>
+                                        @foreach ($categories as $category)
+                                        <li><a href="./categories.html">{{ $category->name}}</a></li>
+                                        @endforeach
+                                        
                                     </ul>
                                 </li>
                             </ul>

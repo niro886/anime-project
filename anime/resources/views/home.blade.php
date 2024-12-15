@@ -34,7 +34,7 @@
                     <div class="label">{{ $show->genre }}</div>
                     <h2>{{ $show->name }}</h2>
                     <p>{{ $show->description }}</p>
-                    <a href="anime-watching.html"><span>Watch Now</span></a>
+                    <a href="{{ route('anime.watching', ['show_id'=>$show->id, 'episode_id'=>1]) }}"><span>Watch Now</span></a>
                 </div>
             </div>
         </div>

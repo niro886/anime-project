@@ -32,4 +32,6 @@ class AdminsController extends Controller
     {
         return view('admins.index');
     }
+
+
 }

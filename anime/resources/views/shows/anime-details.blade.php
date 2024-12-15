@@ -73,6 +73,9 @@
                             @else
                             <form method="POST" action="{{ route('anime.follow', $show->id)}}">
                                 @csrf
+                                <input type="hidden" name="show_image" value="{{ $show->image}}">
+                                <input type="hidden" name="show_name" value="{{ $show->name}}">
+
                             <button type="submit" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</button>
                             </form>
                             @endif

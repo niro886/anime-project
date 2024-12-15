@@ -78,6 +78,8 @@ class AnimeController extends Controller
         $follow = Following::create([
             'show_id' => $id,
             'user_id' => Auth::user()->id,
+            'show_image' => $request->show_image,
+            'show_name' => $request->show_name,
         ]);
 
         if ($follow) {

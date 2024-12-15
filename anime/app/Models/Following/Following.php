@@ -14,6 +14,8 @@ class Following extends Model
     protected $fillable = [
         "show_id",
         "user_id",
+        "show_image",
+        "show_name",
     ];
 
     public $timestamps = true;

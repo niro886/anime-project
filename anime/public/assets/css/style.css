@@ -250,6 +250,18 @@ ol {
     z-index: 99999;
 }
 
+.form-control {
+    width: 250px; /* Adjust width as needed */
+    border-radius: 5px; /* Add a slight rounding if desired */
+}
+
+/* Align the search box properly */
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .search-model-form {
     padding: 0 15px;
 }

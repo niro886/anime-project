@@ -100,16 +100,22 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Homepage</a></li>
+                                <li class="active"><a href="{{ route('home')}}">Homepage</a></li>
                                 <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
                                         @foreach ($categories as $category)
                                         <li><a href="{{ route('anime.category', $category->name)}}">{{ $category->name}}</a></li>
                                         @endforeach
-                                        
-                                    </ul>
+                                        </ul>
                                 </li>
                             </ul>
+
+                            
+                            <form method="POST" action="{{ route('anime.search.shows')}}" class="form-inline my-2 my-lg-0">
+                                @csrf
+                                <input class="form-control mr-sm-2" type="search" name="show" placeholder="Search" aria-label="Search" style="margin-top: -50px; margin-left: 800px;"> 
+                              </form>
+
                         </nav>
                     </div>
                 </div>
@@ -156,10 +162,7 @@
                             @endguest
                                 </ul>
 
-                                <form method="POST" action="{{ route('anime.search.shows')}}" class="form-inline my-2 my-lg-0">
-                                    @csrf
-                                    <input class="form-control mr-sm-2" type="search" name="show" placeholder="Search" aria-label="Search">
-                                  </form>
+                               
                         {{--<a href="#" class="search-switch"><span class="icon_search"></span></a>--}}
                         {{--<a href="./login.html"><span class="icon_profile"></span></a>--}}
                     </div>

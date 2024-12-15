@@ -68,6 +68,7 @@
 
                         <div class="anime__details__btn">
 
+                            @if(isset(auth::user()->id))
                             @if ($validateFollowing>0)
                             <button disabled class="follow-btn"><i class="fa fa-heart-o"></i> Followed</button>
                             @else
@@ -78,6 +79,7 @@
 
                             <button type="submit" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</button>
                             </form>
+                            @endif
                             @endif
 
                             <a href="{{ route('anime.watching', ['show_id'=>$show->id, 'episode_id'=>1]) }}"   class="watch-btn"><span>Watch Now</span> <i
@@ -121,11 +123,15 @@
                         <div class="section-title">
                             <h5>Your Comment</h5>
                         </div>
+                        @if(isset(auth::user()->id))
                         <form method="POST" action="{{ route('anime.insert.comments', $show->id) }}">
                             @csrf
                             <textarea name="comment" placeholder="Your Comment"></textarea>
                             <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
                         </form>
+                        @else
+                        <p class="alert alert-success">Login to write a comment</p>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">

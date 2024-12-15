@@ -2,13 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+
+
+
 
 Route::group(['prefix' => 'shows'], function () {
     Route::get('/show-details/{id}', action: [App\Http\Controllers\Anime\AnimeController::class, 'animeDetails'])->name('anime.details');

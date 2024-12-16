@@ -73,4 +73,12 @@ class AdminsController extends Controller
         }
 
     }
+
+
+    public function allShows()
+    {
+        $allShows = Show::select()->orderBy('id', 'desc')->get();
+
+        return view('admins.allshows', compact('allShows'));
+    }
 }

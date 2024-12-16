@@ -13,6 +13,15 @@
             </div>
             @endif
         </div>
+
+        <div class="container">
+          @if(session()->has('delete'))
+          <div class="alert alert-success">
+              {{ session()->get('delete') }}
+          </div>
+          @endif
+      </div>
+
           <h5 class="card-title mb-4 d-inline">Episodes</h5>
           <a  href="{{ route('episode.create')}}" class="btn btn-primary mb-4 text-center float-right">Create Episodes</a>
 
@@ -45,7 +54,7 @@
 
                     <td>{{ $episode->show_id}}</td>
 
-                    <td><a href="delete-episodes.html" class="btn btn-danger  text-center ">delete</a></td>
+                    <td><a href="{{ route('episodes.delete', $episode->id)}}" class="btn btn-danger  text-center ">delete</a></td>
                   </tr>
                 @endforeach
               

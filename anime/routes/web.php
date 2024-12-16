@@ -72,5 +72,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/all-episodes', [App\Http\Controllers\Admins\AdminsController::class, 'allEpisodes'])->name('episodes.all');
     Route::get('/create-episodes', action: [App\Http\Controllers\Admins\AdminsController::class, 'createEpisodes'])->name('episode.create');
     Route::post('/create-episodes', action: [App\Http\Controllers\Admins\AdminsController::class, 'storeEpisodes'])->name('episode.store');
+    Route::get('/delete-episodes/{id}', action: [App\Http\Controllers\Admins\AdminsController::class, 'deleteEpisodes'])->name('episodes.delete');
 
 });

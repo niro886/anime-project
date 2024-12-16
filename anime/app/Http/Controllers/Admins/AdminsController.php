@@ -249,4 +249,25 @@ class AdminsController extends Controller
     }
 
 
+
+    public function deleteEpisodes($id)
+    {
+        $episode = Episode::find($id);
+
+        if (File::exists(public_path('assets/videos/' . $episode->video))) {
+            File::delete(public_path('assets/videos/' . $episode->video));
+        } else {
+            //dd('File does not exists.');
+        }
+
+        $episode->delete();
+
+        if ($episode) {
+            return Redirect::route('episodes.all')->with(['delete' => "Episode deleted Successfully !"]);
+        }
+
+    }
+
+
+
 }

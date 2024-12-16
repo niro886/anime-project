@@ -150,4 +150,27 @@ class AdminsController extends Controller
 
     }
 
+
+    public function allGenres()
+    {
+        $allGenres = Category::select()->orderBy('id', 'desc')->get();
+
+        return view('admins.allgenres', compact('allGenres'));
+    }
+
+
+    public function deleteGenres($id)
+    {
+        $genre = Category::find($id);
+
+
+        $genre->delete();
+
+        if ($genre) {
+            return Redirect::route('genres.all')->with(['delete' => "Genre deleted Successfully !"]);
+        }
+
+    }
+
+
 }

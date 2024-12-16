@@ -60,4 +60,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('/create-shows', action: [App\Http\Controllers\Admins\AdminsController::class, 'storeShows'])->name('shows.store');
     Route::get('/delete-shows/{id}', action: [App\Http\Controllers\Admins\AdminsController::class, 'deleteShows'])->name('shows.delete');
 
+
+    //genres
+    Route::get('/all-genres', [App\Http\Controllers\Admins\AdminsController::class, 'allGenres'])->name('genres.all');
+    Route::get('/delete-genres/{id}', action: [App\Http\Controllers\Admins\AdminsController::class, 'deleteGenres'])->name('genres.delete');
+
 });

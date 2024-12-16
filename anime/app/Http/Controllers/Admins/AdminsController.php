@@ -10,6 +10,7 @@ use App\Models\Admin\Admin;
 use App\Models\Show\Show;
 use App\Models\Episode\Episode;
 use Redirect;
+use File;
 
 
 class AdminsController extends Controller
@@ -129,4 +130,24 @@ class AdminsController extends Controller
         }
 
     }
+
+
+    public function deleteShows($id)
+    {
+        $show = Show::find($id);
+
+        if (File::exists(public_path('assets/img/' . $show->image))) {
+            File::delete(public_path('assets/img/' . $show->image));
+        } else {
+            //dd('File does not exists.');
+        }
+
+        $show->delete();
+
+        if ($show) {
+            return Redirect::route('shows.all')->with(['delete' => "Show deleted Successfully !"]);
+        }
+
+    }
+
 }

@@ -42,4 +42,12 @@ class AdminsController extends Controller
     }
 
 
+    public function allAdmins()
+    {
+        $allAdmins = Admin::select()->orderBy('id', 'desc')->get();
+
+        return view('admins.allAdmins', compact('allAdmins'));
+    }
+
+
 }

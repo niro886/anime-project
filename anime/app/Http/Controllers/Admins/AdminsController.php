@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category\Category;
 use Illuminate\Http\Request;
 use App\Models\Admin\Admin;
+use App\Models\Show\Show;
+use App\Models\Episode\Episode;
 
 class AdminsController extends Controller
 {
@@ -30,7 +33,12 @@ class AdminsController extends Controller
 
     public function index()
     {
-        return view('admins.index');
+        $shows = Show::select()->count();
+        $episodes = Episode::select()->count();
+        $admins = Admin::select()->count();
+        $categories = Category::select()->count();
+
+        return view('admins.index', compact('shows', 'episodes', 'admins', 'categories'));
     }
 
 

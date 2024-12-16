@@ -67,4 +67,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/create-genres', action: [App\Http\Controllers\Admins\AdminsController::class, 'createGenres'])->name('genres.create');
     Route::post('/create-genres', action: [App\Http\Controllers\Admins\AdminsController::class, 'storeGenres'])->name('genres.store');
 
+
+    //episodes
+    Route::get('/all-episodes', [App\Http\Controllers\Admins\AdminsController::class, 'allEpisodes'])->name('episodes.all');
+
 });

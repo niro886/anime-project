@@ -200,4 +200,13 @@ class AdminsController extends Controller
     }
 
 
+
+    public function allEpisodes()
+    {
+        $allEpisodes = Episode::select()->orderBy('id', 'desc')->get();
+
+        return view('admins.allepisodes', compact('allEpisodes'));
+    }
+
+
 }

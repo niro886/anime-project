@@ -10,7 +10,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title mb-5 d-inline">Create Genres</h5>
-      <form method="POST" action="{{ route('genres.store')}}" enctype="multipart/form-data">
+      <form method="POST" action="{{ route('genres.store')}}" ectype="multipart/form-data">
             <!-- Email input -->
             @csrf
             <div class="form-outline mb-4 mt-4">

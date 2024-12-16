@@ -173,4 +173,31 @@ class AdminsController extends Controller
     }
 
 
+    public function createGenres()
+    {
+        return view('admins.creategenres');
+    }
+
+
+
+
+    public function storeGenres(Request $request)
+    {
+
+        Request()->validate([
+            "name" => "required|max:40",
+        ]);
+
+
+        $storeGenres = Category::create([
+            "name" => $request->name,
+        ]);
+
+        if ($storeGenres) {
+            return Redirect::route('genres.all')->with(['success' => "Genre created Successfully !"]);
+        }
+
+    }
+
+
 }

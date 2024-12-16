@@ -16,8 +16,16 @@
                 @endif
             </div>
 
+            <div class="container">
+                @if(session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+                @endif
+            </div>
+
           <h5 class="card-title mb-4 d-inline">Genres</h5>
-          <a  href="create-genres.html" class="btn btn-primary mb-4 text-center float-right">Create Genres</a>
+          <a  href="{{ route('genres.create')}}" class="btn btn-primary mb-4 text-center float-right">Create Genres</a>
 
           <table class="table">
             <thead>

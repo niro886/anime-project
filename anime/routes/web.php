@@ -64,5 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     //genres
     Route::get('/all-genres', [App\Http\Controllers\Admins\AdminsController::class, 'allGenres'])->name('genres.all');
     Route::get('/delete-genres/{id}', action: [App\Http\Controllers\Admins\AdminsController::class, 'deleteGenres'])->name('genres.delete');
+    Route::get('/create-genres', action: [App\Http\Controllers\Admins\AdminsController::class, 'createGenres'])->name('genres.create');
+    Route::post('/create-genres', action: [App\Http\Controllers\Admins\AdminsController::class, 'storeGenres'])->name('genres.store');
 
 });

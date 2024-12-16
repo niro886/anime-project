@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category\Category;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Admin\Admin;
 use App\Models\Show\Show;
 use App\Models\Episode\Episode;
+use Redirect;
+
 
 class AdminsController extends Controller
 {
@@ -50,4 +53,24 @@ class AdminsController extends Controller
     }
 
 
+
+    public function createAdmins()
+    {
+        return view('admins.createadmins');
+    }
+
+
+    public function storeAdmins(Request $request)
+    {
+        $storeAdmins = Admin::create([
+            "email" => $request->email,
+            "name" => $request->name,
+            "password" => Hash::make($request->password),
+        ]);
+
+        if ($storeAdmins) {
+            return Redirect::route('admins.all')->with(['success' => "Admin created Successfully !"]);
+        }
+
+    }
 }

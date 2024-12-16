@@ -81,4 +81,52 @@ class AdminsController extends Controller
 
         return view('admins.allshows', compact('allShows'));
     }
+
+
+    public function createShows()
+    {
+        $categories = Category::all();
+
+        return view('admins.createshows', compact('categories'));
+    }
+
+
+    public function storeShows(Request $request)
+    {
+
+        Request()->validate([
+            "name" => "required|max:40",
+            "image" => "required|max:600",
+            "description" => "required",
+            "type" => "required|max:40",
+            "date_aired" => "required|max:40",
+            "studios" => "required|max:40",
+            "status" => "required|max:40",
+            "genere" => "required|max:40",
+            "duration" => "required|max:40",
+            "quality" => "required|max:40",
+        ]);
+
+        $destinationPath = 'assets/img/';
+        $myimage = $request->image->getClientOriginalName();
+        $request->image->move(public_path($destinationPath), $myimage);
+
+        $storeShows = Show::create([
+            "name" => $request->name,
+            "image" => $myimage,
+            "description" => $request->description,
+            "type" => $request->type,
+            "date_aired" => $request->date_aired,
+            "studios" => $request->studios,
+            "status" => $request->status,
+            "genere" => $request->genere,
+            "duration" => $request->duration,
+            "quality" => $request->quality,
+        ]);
+
+        if ($storeShows) {
+            return Redirect::route('shows.all')->with(['success' => "Show created Successfully !"]);
+        }
+
+    }
 }

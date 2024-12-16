@@ -209,4 +209,44 @@ class AdminsController extends Controller
     }
 
 
+    public function createEpisodes()
+    {
+        $shows = Show::all();
+
+        return view('admins.createepisodes', compact('shows'));
+    }
+
+    public function storeEpisodes(Request $request)
+    {
+
+        Request()->validate([
+            "episode_name" => "required|max:40",
+            "thumbnail" => "required|max:600",
+            "video" => "required",
+            "show_id" => "required|max:40",
+        ]);
+
+        $destinationPath = 'assets/thumbnails/';
+        $myimage = $request->image->getClientOriginalName();
+        $request->image->move(public_path($destinationPath), $myimage);
+
+        $destinationPathVideo = 'assets/videos/';
+        $myvideo = $request->video->getClientOriginalName();
+        $request->video->move(public_path($destinationPathVideo), $myvideo);
+
+        $storeEpisodes = Episode::create([
+            "episode_name" => $request->name,
+            "thumbnail" => $myimage,
+            "video" => $myvideo,
+            "show_id" => $request->show_id,
+
+        ]);
+
+        if ($storeEpisodes) {
+            return Redirect::route('episodes.all')->with(['success' => "Episode created Successfully !"]);
+        }
+
+    }
+
+
 }

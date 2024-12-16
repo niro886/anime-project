@@ -6,8 +6,15 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
+          <div class="container">
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+            @endif
+        </div>
           <h5 class="card-title mb-4 d-inline">Episodes</h5>
-          <a  href="create-episodes.html" class="btn btn-primary mb-4 text-center float-right">Create Episodes</a>
+          <a  href="{{ route('episode.create')}}" class="btn btn-primary mb-4 text-center float-right">Create Episodes</a>
 
           <table class="table">
             <thead>

@@ -11,6 +11,7 @@ use App\Models\Show\Show;
 use App\Models\Episode\Episode;
 use Redirect;
 use File;
+use Auth;
 
 
 class AdminsController extends Controller
@@ -267,6 +268,16 @@ class AdminsController extends Controller
         }
 
     }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('view.login');
+    }
+
 
 
 

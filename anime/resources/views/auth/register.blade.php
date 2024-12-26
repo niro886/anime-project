@@ -129,7 +129,7 @@
                         </div>
 
                         <div class="input__item">
-                            <input id="password" placeholder="Confirm Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <input id="password" placeholder="Confirm Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
                             
                             <span class="icon_lock"></span>
                         </div>

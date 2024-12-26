@@ -56,7 +56,7 @@
           </li>
           
           <li class="nav-item dropdown">
-            <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link  dropdown-toggle" href="{{ route('logout') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{ Auth::guard('admin')->user()->name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -64,9 +64,9 @@
               document.getElementById('logout-form').submit();">
                Logout
            </a>
-              <form id ="logout-form" action="{{ route('logout') }}" method="POST " class="d-none">
-              @csrf
-             </form>
+           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
               
           </li>
 

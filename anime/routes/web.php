@@ -44,7 +44,7 @@ Route::get('users/followed-shows', [App\Http\Controllers\Users\UsersController::
 //admin panel
 Route::get('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewLogin'])->name('view.login')->middleware(CheckForAuth::class);
 Route::post('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'checkLogin'])->name('check.login');
-Route::post('admin/logout', [App\Http\Controllers\Admins\AdminsController::class, 'logout'])->name('logout');
+Route::post('/logout', [App\Http\Controllers\Admins\AdminsController::class, 'logout'])->name('logout');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {

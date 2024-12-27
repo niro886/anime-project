@@ -7,7 +7,8 @@ use App\Models\Episode\Episode;
 use App\Models\Following\Following;
 use App\Models\Show\Show;
 use App\Models\Comment\Comment;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 use Redirect;
 use App\Models\View\View;
